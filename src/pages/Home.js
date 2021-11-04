@@ -13,7 +13,11 @@ export default function Home() {
   const handleSubmit = (e) => {
     e.preventDefault()
     // https://innstyle.co.za/?utm_source=google&utm_medium=email&utm_campaign=free-to-book
-    const url = `https://${address}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}`
+    const url = `https://${address
+      .trim()
+      .toLowerCase()}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign
+      .replace(/\s+/g, '-')
+      .toLowerCase()}`
 
     setGeneratedUrl(url)
   }
@@ -51,21 +55,32 @@ export default function Home() {
         </label>
         <label>
           <span>UTM Source</span>
-          <input
+          <select onChange={(e) => setSource(e.target.value)}>
+            <option value="google">Google</option>
+            <option value="activecampaign">Active Campaign</option>
+            <option value="facebook">Facebook</option>
+          </select>
+          {/* <input
             type="text"
             onChange={(e) => setSource(e.target.value)}
             value={source}
             required
-          />
+          /> */}
         </label>
         <label>
-          <span>URL Medium</span>
-          <input
+          <span>UTM Medium</span>
+          <select onChange={(e) => setMedium(e.target.value)}>
+            <option value="social">Social</option>
+            <option value="organic">Organic</option>
+            <option value="email">Email</option>
+            <option value="siteminder">Siteminder</option>
+          </select>
+          {/* <input
             type="text"
             onChange={(e) => setMedium(e.target.value)}
             value={medium}
             required
-          />
+          /> */}
         </label>
         <label>
           <span>URL Campaign</span>
