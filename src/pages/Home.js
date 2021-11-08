@@ -88,7 +88,7 @@ export default function Home() {
             required
           />
           <span className="sub-label-text">
-            Product, promo code, or slogan: (e.g. <em>free_to_book</em>,{' '}
+            Product, promo code, or slogan: (e.g. <em>summer_sale</em>,{' '}
             <em>gift_voucher</em>)).
           </span>
         </label>
