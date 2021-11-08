@@ -7,15 +7,15 @@ export default function Home() {
   const [source, setSource] = useState('')
   const [medium, setMedium] = useState('')
   const [campaign, setCampaign] = useState('')
+  const [keyword, setKeyword] = useState('')
   const [generatedUrl, setGeneratedUrl] = useState('')
   const [clipboardStatus, setClipboardStatus] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // https://innstyle.co.za/?utm_source=google&utm_medium=email&utm_campaign=free-to-book
     const url = `https://${address
       .trim()
-      .toLowerCase()}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign
+      .toLowerCase()}?utm_source=${source}&utm_medium=${medium}&utm_campaign=${campaign}&utm_term=${keyword
       .replace(/\s+/g, '-')
       .toLowerCase()}`
 
@@ -52,6 +52,9 @@ export default function Home() {
             value={address}
             required
           />
+          <span className="sub-label-text">
+            https://<em>www.google.com</em>
+          </span>
         </label>
         <label>
           <span>UTM Source</span>
@@ -60,12 +63,9 @@ export default function Home() {
             <option value="activecampaign">Active Campaign</option>
             <option value="facebook">Facebook</option>
           </select>
-          {/* <input
-            type="text"
-            onChange={(e) => setSource(e.target.value)}
-            value={source}
-            required
-          /> */}
+          <span className="sub-label-text">
+            The referrer: (e.g. <em>google</em>, <em>active-campaign</em>).
+          </span>
         </label>
         <label>
           <span>UTM Medium</span>
@@ -75,12 +75,9 @@ export default function Home() {
             <option value="email">Email</option>
             <option value="siteminder">Siteminder</option>
           </select>
-          {/* <input
-            type="text"
-            onChange={(e) => setMedium(e.target.value)}
-            value={medium}
-            required
-          /> */}
+          <span className="sub-label-text">
+            Marketing medium: (e.g. <em>banner</em>, <em>email</em>).
+          </span>
         </label>
         <label>
           <span>URL Campaign</span>
@@ -90,6 +87,23 @@ export default function Home() {
             value={campaign}
             required
           />
+          <span className="sub-label-text">
+            Product, promo code, or slogan: (e.g. <em>free_to_book</em>,{' '}
+            <em>gift_voucher</em>)).
+          </span>
+        </label>
+        <label>
+          <span>UTM Keyword</span>
+          <input
+            type="text"
+            onChange={(e) => setKeyword(e.target.value)}
+            value={keyword}
+            required
+          />
+          <span className="sub-label-text">
+            Keyword to identify the campaign: (e.g. <em>partner_banner</em>,{' '}
+            <em>start_date</em>)).
+          </span>
         </label>
         <button className="button">Generate URL</button>
         <span onClick={handleReset} className="reset">

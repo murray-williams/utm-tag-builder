@@ -1,4 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap');
+
 .App {
   min-height: 100%;
   margin: 0 0 60px 0;
+}
+
+.App .sub-label-text {
+  font-family: 'Source Code Pro', monospace;
+  margin-top: 5px;
+  font-size: 0.6em;
+  font-weight: 200;
+}
+.App .sub-label-text em {
+  color: #ca2f5d;
+  font-weight: 400;
 }
