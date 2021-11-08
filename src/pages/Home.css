@@ -13,6 +13,7 @@
   display: block;
   text-align: center;
   font-size: 0.7em;
+  cursor: pointer;
 }
 .home label span {
   display: block;
