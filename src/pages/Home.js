@@ -64,7 +64,7 @@ export default function Home() {
             <option value="facebook">Facebook</option>
           </select>
           <span className="sub-label-text">
-            The referrer: (e.g. <em>google</em>, <em>active-campaign</em>).
+            The referrer: (e.g. <em>google</em>, <em>active_campaign</em>).
           </span>
         </label>
         <label>
